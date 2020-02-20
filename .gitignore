@@ -1,0 +1,9 @@
+# Project exclude paths
+/.gradle/
+/build/
+/out/
+/out/production/classes/
+*.txt
+waters
+images
+.idea
