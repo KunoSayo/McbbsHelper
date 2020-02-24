@@ -9,7 +9,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
@@ -27,7 +26,7 @@ public class NewHelpGetter implements Runnable {
     @Override
     public void run() {
         LinkedList<String> list = new LinkedList<>();
-        while(Main.running) {
+        while (Main.running) {
             try {
                 final String urlPrefix = "https://www.mcbbs.net/";
                 URL url = new URL("https://www.mcbbs.net/forum.php?mod=guide&view=newthread&mobile=no");
