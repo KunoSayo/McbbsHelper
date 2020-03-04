@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.github.euonmyoji.mcbbshelper'
-version '0.2.0'
+version '0.3.0'
 
 sourceCompatibility = 1.8
 

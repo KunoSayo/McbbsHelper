@@ -1,7 +1,5 @@
 package com.github.euonmyoji.mcbbshelper;
 
-import sun.security.provider.MD5;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -10,7 +8,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.stream.IntStream;
-import java.util.zip.CRC32;
 
 import static com.github.euonmyoji.mcbbshelper.Main.scanner;
 

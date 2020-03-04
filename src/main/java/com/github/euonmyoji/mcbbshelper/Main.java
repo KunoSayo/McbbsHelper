@@ -16,7 +16,7 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        System.out.println("输入1爬用户 输入2爬签到 输入3爬日常任务1|2页面   输入6爬头像  任意时刻有效(大概)");
+        help();
         new Thread(Main::getCommand).start();
     }
 
@@ -63,6 +63,10 @@ public class Main {
                     new WaterChecker();
                     break;
                 }
+                case "map": {
+                    new McbbsMapNetease();
+                    break;
+                }
                 case "4":
                 case "getNewHelp": {
                     System.out.println("开始爬最新问答 from 导读");
@@ -87,5 +91,11 @@ public class Main {
                 }
             }
         }
+    }
+
+    private static void help() {
+        System.out.println("输入1爬用户 输入2爬签到 输入3爬日常任务1|2页面   输入6爬头像  任意时刻有效(大概)");
+        System.out.println("输入map来检测uid和名字是否在网易存在对应用户");
+
     }
 }
