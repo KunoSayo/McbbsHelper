@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -27,7 +28,9 @@ class McbbsMapNetease {
             if (Files.notExists(Paths.get("mcbbsUserData.txt"))) {
                 Files.createFile(Paths.get("mcbbsUserData.txt"));
             }
-            Files.createFile(Paths.get("mcbbsMapNetease.txt"));
+            if (Files.notExists(Paths.get("mcbbsMapNetease.txt"))) {
+                Files.createFile(Paths.get("mcbbsMapNetease.txt"));
+            }
             Scanner in = new Scanner(Paths.get("mcbbsUserData.txt"));
             for (int i = 0; i < inputCurLine; i++) {
                 in.nextLine();
@@ -35,7 +38,7 @@ class McbbsMapNetease {
             String urlPrefix = "https://mc.netease.com/home.php?mod=space&username=";
             new Thread(() -> {
                 int curLine = inputCurLine;
-                try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("mcbbsMapNetease.txt"), StandardOpenOption.APPEND)) {
+                try (BufferedWriter writer = Files.newBufferedWriter(Paths.get("mcbbsMapNetease.txt"), StandardCharsets.UTF_8, StandardOpenOption.APPEND)) {
                     String fileLine;
                     fileLoop:
                     while ((++curLine > 0) && in.hasNextLine() && (fileLine = in.nextLine()) != null) {
@@ -45,7 +48,7 @@ class McbbsMapNetease {
                         for (int i = 0; true; i++) {
                             try {
                                 URL url = new URL(urlPrefix + URLEncoder.encode(data[1], "GBK"));
-                                try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openConnection().getInputStream()))) {
+                                try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openConnection().getInputStream(), StandardCharsets.UTF_8))) {
                                     String urlLine;
                                     while ((urlLine = reader.readLine()) != null) {
                                         if (NOT_FOUND.matcher(urlLine).matches()) {
