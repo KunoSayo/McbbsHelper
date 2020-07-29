@@ -29,7 +29,7 @@ public class NewHelpGetter implements Runnable {
         while (Main.running) {
             try {
                 final String urlPrefix = "https://www.mcbbs.net/";
-                URL url = new URL("https://www.mcbbs.net/forum.php?mod=guide&view=newthread&mobile=no");
+                URL url = new URL("https://www.mcbbs.net/forum.php?mod=guide&view=sofa&mobile=no");
                 while (Main.running) {
                     URLConnection con = url.openConnection();
                     con.setReadTimeout(5000);
@@ -77,6 +77,11 @@ public class NewHelpGetter implements Runnable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+                try {
+                    Thread.sleep(30000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
     }

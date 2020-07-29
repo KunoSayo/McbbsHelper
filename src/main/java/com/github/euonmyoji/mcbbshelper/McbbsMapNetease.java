@@ -45,7 +45,7 @@ class McbbsMapNetease {
                         String[] data = fileLine.split("\t", 2);
                         System.out.println("reading file line:" + curLine + "    (UID:" + data[0] + "  , NAME:" + data[1] + ")             cur progress:" + (curLine / 263305.0));
                         String writePrefix = data[1] + "\t" + data[0] + "\t";
-                        for (int i = 0; true; i++) {
+                        for (int i = 0; true; ++i) {
                             try {
                                 URL url = new URL(urlPrefix + URLEncoder.encode(data[1], "GBK"));
                                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openConnection().getInputStream(), StandardCharsets.UTF_8))) {

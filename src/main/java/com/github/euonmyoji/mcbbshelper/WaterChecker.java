@@ -89,6 +89,11 @@ public class WaterChecker implements Runnable {
                 Thread.sleep(5000);
             } catch (Exception e) {
                 e.printStackTrace();
+                try {
+                    Thread.sleep(15000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
             }
         }
         System.out.println("writing list to file");

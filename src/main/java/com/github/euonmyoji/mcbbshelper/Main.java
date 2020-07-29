@@ -69,8 +69,17 @@ public class Main {
                 }
                 case "4":
                 case "getNewHelp": {
-                    System.out.println("开始爬最新问答 from 导读");
+                    System.out.println("开始爬最新问答: ");
                     new Thread(new NewHelpGetter()).start();
+                    break;
+                }
+                case "mod": {
+                    try {
+                        Desktop.getDesktop().browse(new URI("https://www.mcbbs.net/forum.php?mod=forumdisplay&fid=45&filter=sortid&sortid=1"));
+                    } catch (IOException | URISyntaxException e) {
+                        e.printStackTrace();
+                    }
+
                     break;
                 }
                 case "5": {
